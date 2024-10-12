@@ -1,3 +1,9 @@
+#include <iostream>
+#include <vector>
+#include <string>
+ 
+using namespace std;
+ 
 void reporteDatosGenerales(const vector<Estudiante>& estudiantes) {
     cout << "\n--- Reporte de Datos Generales de los Estudiantes ---\n";
     for (const auto& est : estudiantes) {
