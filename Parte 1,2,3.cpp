@@ -18,7 +18,6 @@ struct Notas {
     string estado; // Estructura para guardar notas en el resgistro de notas y poder hacerlas ver en los reportres academicos
 };
 
-
 struct Curso {
     string nombre;
     string seccion;
@@ -205,7 +204,6 @@ void registrarEstudiante(vector<Estudiante>& estudiantes) {
     cout << "Semestre: " << nuevoEstudiante.semestre << endl;
     cout << "--------------------------------------------------------------------\n";
 
-   
     char continuar;
     cout << "¿Quieres registrar otro estudiante? (s/n): ";
     cin >> continuar;
@@ -459,9 +457,7 @@ void controlDeNotas(vector<Estudiante>& estudiantes) {
         cout << "No se encontró un estudiante con el código: " << codigo << endl;
     }
 }
-
 //------------------------------------------------------------------------------------
-
 void reporteDatosGenerales(const vector<Estudiante>& estudiantes) {
     cout << "==================== Reporte de Datos Generales ====================\n";
     for (const auto& estudiante : estudiantes) {
@@ -567,12 +563,8 @@ void menuReportes(const vector<Estudiante>& estudiantes) {
         	return;
         default:
             cout << "Opción no válida. Intente de nuevo.\n";
-	    }
-	
-	
+	    }	
 }
-
-
 //------------------------------------------------------------------------------------
 int main() {
 	setlocale (LC_CTYPE, "Spanish");
@@ -616,6 +608,5 @@ int main() {
                 cout << "Opción no válida. Intente de nuevo.\n";
         }
     }
-
     return 0;
 }
