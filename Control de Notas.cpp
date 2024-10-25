@@ -112,76 +112,39 @@ void reporteRendimientoAcademico(const vector<Estudiante>& estudiantes) {
     }
 }
 
-void menuReportes(const vector<Estudiante>& estudiantes) {
-	
-    	int opcionReporte;
-        
-    	cout << "Seleccione el tipo de reporte:\n";
-    	cout << "1. Datos Generales\n";
-    	cout << "2. Asignación de Cursos\n";
-    	cout << "3. Notas\n";
-    	cout << "4. Rendimiento Académico\n";
-     	cout << "5. Regresar al Menú Principal\n";
-    	cout << "Opción: ";
-    	cin >> opcionReporte;
-    	cin.clear();
-    	cin.ignore();
-    	cout << "--------------------------------------------------------------------\n";
-
-    	switch (opcionReporte) {
-        case 1:
-            reporteDatosGenerales(estudiantes);
-            break;
-        case 2:
-            reporteAsignacionCursos(estudiantes);
-            break;
-        case 3:
-            reporteNotas(estudiantes);
-            break;
-        case 4:
-            reporteRendimientoAcademico(estudiantes);
-            break;
-        case 5:
-        	return;
-        default:
-            cout << "Opción no válida. Intente de nuevo.\n";
-	    }	
-}
-//------------------------------------------------------------------------------------
 int main() {
-	setlocale (LC_CTYPE, "Spanish");
-    srand(time(0)); 
-    vector<Estudiante> estudiantes;
-    int opcion;
-	
+    setlocale(LC_CTYPE, "Spanish");
+    vector<Estudiante> estudiantes = cargarDatosDesdeArchivo();
+    int opcionReporte;
+
     while (true) {
         cout << "-----------------------------------------------------------------\n";
         cout << "                         --- UMG ---\n";
         cout << "-----------------------------------------------------------------\n";
-        cout << "1. Registro de estudiantes\n";
-        cout << "2. Asignar cursos\n";
-        cout << "3. Control de notas\n";
-        cout << "4. Reportes Académicos\n"; 
-        cout << "5. Salir\n";
-        cout << "=================================================================\n";
-        cout << "Seleccione una opcion: ";
-        cin >> opcion;
+        cout << "Seleccione el tipo de reporte:\n";
+        cout << "1. Datos Generales\n";
+        cout << "2. Asignación de Cursos\n";
+        cout << "3. Notas\n";
+        cout << "4. Rendimiento Académico\n";
+        cout << "5. Regresar al Menú Principal\n";
+        cout << "Opción: ";
+        cin >> opcionReporte;
         cin.ignore();
-        cin.clear();//para evitar bucles por datos mal ingresados, lo corrobore al ver el video que Brayan envio
+        cin.clear();
         cout << "--------------------------------------------------------------------\n";
 
-        switch (opcion) {
+        switch (opcionReporte) {
             case 1:
-                registrarEstudiante(estudiantes);
+                reporteDatosGenerales(estudiantes);
                 break;
             case 2:
-                asignarCursos(estudiantes);
+                reporteAsignacionCursos(estudiantes);
                 break;
             case 3:
-                controlDeNotas(estudiantes);
+                reporteNotas(estudiantes);
                 break;
             case 4:
-            	 menuReportes(estudiantes);
+                reporteRendimientoAcademico(estudiantes);
                 break;
             case 5:
                 cout << "Saliendo del programa...\n";
@@ -190,5 +153,7 @@ int main() {
                 cout << "Opción no válida. Intente de nuevo.\n";
         }
     }
+
     return 0;
 }
+//Mario David Tereta Sapalun 0905-15-14297 (Control de Notas, Proyecto Final Individual)
