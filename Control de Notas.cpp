@@ -1,10 +1,9 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include <ctime>
-#include <cstdlib>
+#include <fstream>
 #include <sstream>
-#include <locale.h>//Para usar lenguaje español y tildes
+#include <locale.h> //Para usar lenguaje español y tildes
 #include <cmath> // Para poder sacar el promedio final
 
 using namespace std;
