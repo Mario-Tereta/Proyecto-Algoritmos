@@ -37,7 +37,55 @@ struct Estudiante {
     int codigoEstudiante;
     vector<Curso> cursos;
 };
+// --------------------------------------------------------------------------------
+vector<Estudiante> cargarDatosDesdeArchivo() {
+    ifstream archivo("estudiantes.txt");
+    vector<Estudiante> estudiantes;
+    if (!archivo) {
+        cout << "No se pudo abrir el archivo 'estudiantes.txt'.\n";
+        return estudiantes;
+    }
 
+    string linea;
+    while (getline(archivo, linea)) {
+        Estudiante est;
+        stringstream ss(linea);
+
+        string cantidadCursosStr;
+        getline(ss, est.nombres, ',');
+        getline(ss, est.apellidos, ',');
+        getline(ss, est.departamento, ',');
+        getline(ss, est.municipio, ',');
+        getline(ss, est.carrera, ',');
+        getline(ss, est.fechaNacimiento, ',');
+        ss >> est.edad; ss.ignore();
+        ss >> est.aniosEnUniversidad; ss.ignore();
+        ss >> est.semestre; ss.ignore();
+        ss >> est.codigoEstudiante; ss.ignore();
+        getline(ss, cantidadCursosStr, ',');
+        int cantidadCursos = stoi(cantidadCursosStr);
+
+        for (int i = 0; i < cantidadCursos; ++i) {
+            Curso curso;
+            getline(ss, curso.nombre, ',');
+            getline(ss, curso.seccion, ',');
+            getline(ss, curso.codigoCurso, ',');
+            ss >> curso.notas.nota1; ss.ignore();
+            ss >> curso.notas.nota2; ss.ignore();
+            ss >> curso.notas.zonaTotal; ss.ignore();
+            ss >> curso.notas.examenFinal; ss.ignore();
+            ss >> curso.notas.notaFinal; ss.ignore();
+            getline(ss, curso.notas.estado, ',');
+
+            est.cursos.push_back(curso);
+        }
+
+        estudiantes.push_back(est);
+    }
+
+    archivo.close();
+    return estudiantes;
+}
 //------------------------------------------------------------------------------------
 void reporteDatosGenerales(const vector<Estudiante>& estudiantes) {
     cout << "==================== Reporte de Datos Generales ====================\n";
