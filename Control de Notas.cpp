@@ -86,7 +86,7 @@ vector<Estudiante> cargarDatosDesdeArchivo() {
     archivo.close();
     return estudiantes;
 }
-//------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------
 void reporteDatosGenerales(const vector<Estudiante>& estudiantes) {
     cout << "==================== Reporte de Datos Generales ====================\n";
     for (const auto& estudiante : estudiantes) {
@@ -102,8 +102,6 @@ void reporteDatosGenerales(const vector<Estudiante>& estudiantes) {
         cout << "Semestre: " << estudiante.semestre << "\n";
         cout << "--------------------------------------------------------------------\n";
     }
-    
-    return;
 }
 
 void reporteAsignacionCursos(const vector<Estudiante>& estudiantes) {
@@ -120,7 +118,6 @@ void reporteAsignacionCursos(const vector<Estudiante>& estudiantes) {
 }
 
 void reporteNotas(const vector<Estudiante>& estudiantes) {
-    int zonaTotal, examenFinal;
     cout << "==================== Reporte de Notas ====================\n";
     for (const auto& estudiante : estudiantes) {
         cout << "Código del Estudiante: " << estudiante.codigoEstudiante << "\n";
@@ -158,7 +155,7 @@ void reporteRendimientoAcademico(const vector<Estudiante>& estudiantes) {
         cout << "--------------------------------------------------------------------\n";
     }
 }
-
+//-------------------------------------------------------------------------------------------------------------------
 int main() {
     setlocale(LC_CTYPE, "Spanish");
     vector<Estudiante> estudiantes = cargarDatosDesdeArchivo();
